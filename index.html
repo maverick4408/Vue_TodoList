@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="dist/css/app.css">
+  <script src="https://use.fontawesome.com/e3ae05b8e6.js"></script>
+  <script src="https://kit.fontawesome.com/07e5ace2c9.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="main">
+  <h1 class="mainTitle">TRY TODOS</h1>
+
+  <section class="section">
+    <div id="addTask">
+        <input
+            type="text"
+            class="inputArea"
+            v-model="newTask"
+            @keyup.enter="addTodo"
+            placeholder="task here">
+        </input>
+        <input type="submit" class="button btn" value="追加" @click="addTask">
+          <div v-for="todo in todos">{{ todo.text }}</div>
+    </div>
+  </section>
+
+<!--  <section class="section">-->
+<!--      <div id="maap1">-->
+<!--        <div :class="{ origin: isDone }">-->
+<!--            <i @click="changeIsDone" class="far fa-square" v-if="!isDone"></i>-->
+<!--            <i @click="changeIsDone" class="far fa-check-square" v-if="isDone"></i>-->
+<!--            <span>{{ task }}</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--  </section>-->
+
+
+  <section class="section">
+      <div id="appTodoTasks">
+        <todo_task
+            class="tasks"
+            title="taitoru"
+            v-for ="(post, index) in posts"
+            :post = "post"
+            :key = "index"
+            @change = "changeIsDone(post,index)"
+            @trash_task = "trashTask()"
+            @back_number = "backNumber(post)"
+        >{{ post }}</todo_task>
+      </div>
+  </section>
+
+
+
+<!--  <section class="section">-->
+<!--    <div id="maap-a">-->
+<!--      {{ title2 }}-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="maap2" :class="classObject" >-->
+<!--      <span :class="classObject2" >{{ donkey }}</span>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="maap3" >-->
+<!--      <span v-if="isShow">-->
+<!--        aaa-->
+<!--        <span v-if="isShow !== false"> bbb </span>-->
+<!--      </span>-->
+<!--      <i v-if="isShow !== false"> cccc </i>-->
+<!--    </div>-->
+<!--  </section>-->
+
+
+<!--  <section class="section">-->
+<!--    <div id="maap4">-->
+<!--     <span v-for="p in pilot">-->
+<!--      {{ p.text }}-->
+<!--      </span>-->
+<!--      <ol>-->
+<!--        <li v-for="p in pilot">-->
+<!--          {{ p.text }}-->
+<!--        </li>-->
+<!--      </ol>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="maap-b" :title="piyo" >-->
+<!--      {{ message }}-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="maap5">-->
+<!--      {{ ms }}-->
+<!--      <button @click="tranceForm" value="変形" ></button>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="maap6">-->
+<!--      <p> {{ message }} </p>-->
+<!--      <input type="text" v-model="message">-->
+<!--      <input type="text" v-model="message">-->
+<!--    </div>-->
+<!--  </section>-->
+
+
+
+<!--  <section class="section">-->
+<!--    <div id="app1" >-->
+<!--      {{ message }}-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="app2">-->
+<!--      <span v-bind:title="message" :class="classObject">-->
+<!--        この文字にマウスホバーすると画面を表示した日付が出る-->
+<!--      </span>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="app3">-->
+<!--      <span v-if="isShow">v-ifを使って、domの表示非表示が簡単に出来る。非表示だとDOM自体なくなるので注意！</span>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="app4">-->
+<!--      <ol>-->
+<!--        <li v-for="todo in todos">-->
+<!--          {{ todo.text }}-->
+<!--        </li>-->
+<!--      </ol>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="app5">-->
+<!--      <p>{{ message }}</p>-->
+<!--      <button v-on:click="changeMessage">メッセージを変える</button>-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--  <section class="section">-->
+<!--    <div id="app6">-->
+<!--      <p>{{ message }}</p>-->
+<!--      <input type="text" v-model="message">-->
+<!--    </div>-->
+<!--  </section>-->
+
+<!--</div>-->
+
+<script src="dist/js/bundle.js"></script>
+</body>
+</html>
